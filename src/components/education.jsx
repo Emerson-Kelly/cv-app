@@ -50,7 +50,7 @@ export default function EducationForm({ onSubmit }) {
         Start Date
         </label>
         <input
-          id="startDate"
+          id="educationStartDate"
           {...register("startDate")}
           type="text"
           placeholder="Start Date"
@@ -62,7 +62,7 @@ export default function EducationForm({ onSubmit }) {
             End Date
         </label>
         <input
-        id="endDate"
+        id="educationEndDate"
         {...register("endDate")}
         type="text"
         placeholder="End Date"

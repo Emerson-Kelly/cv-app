@@ -9,10 +9,12 @@ import { Separator } from "./components/ui/separator";
 import { Button } from "@/components/ui/button";
 import { PersonalDetailsSubmission } from "./components/personal-details-submission";
 import { EducationSubmission } from "./components/education";
+import { ExperienceSubmission } from "./components/experience";
 
 function App() {
   const [personalDetailsData, setPersonalDetailsFormData] = useState(null);
   const [educationData, setEducationData] = useState(null);
+  const [experienceData, setExperienceData] = useState(null);
 
   const handlePersonalDetailsSubmit = (data) => {
     setPersonalDetailsFormData(data);
@@ -22,11 +24,16 @@ function App() {
     setEducationData(data);
   };
 
+  const handleExperienceSubmit = (data) => {
+    setExperienceData(data)
+  }
+
   return (
     <SidebarProvider>
       <AppSidebar
         onPersonalDetailsSubmit={handlePersonalDetailsSubmit}
         onEducationSubmit={handleEducationSubmit}
+        onExperienceSubmit={handleExperienceSubmit}
       />
       <SidebarInset>
         <header className="flex sticky top-0 bg-background h-16 shrink-0 items-center gap-2 border-b px-4">
@@ -50,6 +57,13 @@ function App() {
           {educationData ? (
             <EducationSubmission data={educationData} />
           ) : (
+            <p>No data submitted yet.</p>
+          )}
+        </div>
+        <div className="p-4">
+          {experienceData ? (
+            <ExperienceSubmission data={experienceData} />
+           ) : ( 
             <p>No data submitted yet.</p>
           )}
         </div>
