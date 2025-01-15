@@ -88,19 +88,3 @@ export function PersonalDetailsSubmission({ data }) {
   }
   
 
-export function PersonalDetails() {
-  const [formData, setFormData] = useState(null);
-
-  const handleFormSubmit = (data) => {
-    setFormData(data);
-  };
-
-  return (
-    <div>
-      <h1 className="text-2xl font-bold">Personal Details App</h1>
-      <PersonalDetailsForm onSubmit={handleFormSubmit} />
-      {formData && <PersonalDetailsSubmission data={formData} />}
-    </div>
-  );
-}
-
