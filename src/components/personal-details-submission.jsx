@@ -70,7 +70,7 @@ export default function PersonalDetailsForm({ onSubmit }) {
 export function PersonalDetailsSubmission({ data }) {
     return (
       <div className="p-4 border rounded-md bg-white">
-        <h2 className="text-xl font-semibold">Submitted Data</h2>
+        <h2 className="text-xl font-semibold">Personal Details</h2>
         <p>
           <strong>First Name:</strong> {data.firstName}
         </p>
