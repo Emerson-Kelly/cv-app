@@ -1,10 +1,11 @@
-import * as React from "react";
+//import * as React from "react";
+import React, { useState } from "react";
 import { ChevronRight } from "lucide-react";
 import { useForm } from "react-hook-form";
 import PersonalDetailsForm from "./personal-details-submission";
 import EducationForm from "./education";
 import ExperienceForm from "./experience";
-
+import { Button } from "@/components/ui/button";
 import {
   Collapsible,
   CollapsibleContent,
@@ -17,62 +18,24 @@ import {
   SidebarGroupContent,
   SidebarGroupLabel,
   SidebarHeader,
-  SidebarMenu,
-  SidebarMenuButton,
-  SidebarMenuItem,
   SidebarRail,
 } from "@/components/ui/sidebar";
 
-// This is sample data.
-export const data = {
-  versions: ["1.0.1", "1.1.0-alpha", "2.0.0-beta1"],
-  navMain: [
-    {
-      title: "Personal Details",
-      url: "#",
-      items: [
-        {
-          title: "Form",
-          render: <PersonalDetailsForm key="personal-details-form" />,
-        },
-      ],
-    },
-    {
-      title: "Education",
-      url: "#",
-      items: [
-        {
-          title: "Form",
-          render: <EducationForm key="education-form" />,
-        },
-      ],
-    },
-    {
-      title: "Experience",
-      url: "#",
-      items: [
-        {
-          title: "Form",
-          render: <ExperienceForm key="experience-form" />
-        },
-        {
-          title: "New Form",
-          url: "#",
-        },
-      ],
-    },
-  ],
-};
+import { v4 as uuidv4 } from "uuid";
 
-export function AppSidebar({ onPersonalDetailsSubmit, onEducationSubmit, onExperienceSubmit }) {
+export function AppSidebar({
+  onPersonalDetailsSubmit,
+  onEducationSubmit,
+  onFirstExperienceSubmit,
+  onSecondExperienceSubmit,
+}) {
+
   return (
     <Sidebar>
       <SidebarHeader>{/* Sidebar header content */}</SidebarHeader>
       <SidebarContent className="gap-0">
-        <Collapsible
-          title="Personal Details"
-          className="group/collapsible"
-        >
+        {/* Personal Details */}
+        <Collapsible title="Personal Details" className="group/collapsible">
           <SidebarGroup>
             <SidebarGroupLabel asChild>
               <CollapsibleTrigger>
@@ -82,50 +45,48 @@ export function AppSidebar({ onPersonalDetailsSubmit, onEducationSubmit, onExper
             </SidebarGroupLabel>
             <CollapsibleContent>
               <SidebarGroupContent>
-              <PersonalDetailsForm onSubmit={onPersonalDetailsSubmit} />
+                <PersonalDetailsForm onSubmit={onPersonalDetailsSubmit} />
               </SidebarGroupContent>
             </CollapsibleContent>
           </SidebarGroup>
         </Collapsible>
 
-        <Collapsible
-          title="Education"
-          className="group/collapsible"
-        >
+        {/* Education */}
+        <Collapsible title="Education" className="group/collapsible">
           <SidebarGroup>
             <SidebarGroupLabel asChild>
               <CollapsibleTrigger>
-              Education {""}
+                Education{" "}
                 <ChevronRight className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-90" />
               </CollapsibleTrigger>
             </SidebarGroupLabel>
             <CollapsibleContent>
               <SidebarGroupContent>
-              <EducationForm onSubmit={onEducationSubmit} />
+                <EducationForm onSubmit={onEducationSubmit} />
               </SidebarGroupContent>
             </CollapsibleContent>
           </SidebarGroup>
         </Collapsible>
 
-        <Collapsible
-          title="Experience"
-          className="group/collapsible"
-        >
+        {/* Experience */}
+        <Collapsible title="Experience" className="group/collapsible">
           <SidebarGroup>
             <SidebarGroupLabel asChild>
               <CollapsibleTrigger>
-              Experience {""}
+                Experience{" "}
                 <ChevronRight className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-90" />
               </CollapsibleTrigger>
             </SidebarGroupLabel>
             <CollapsibleContent>
               <SidebarGroupContent>
-              <ExperienceForm onSubmit={onExperienceSubmit} />
+                <ExperienceForm 
+                  onSubmitFirstExperience={onFirstExperienceSubmit} 
+                  onSubmitSecondExperience={onSecondExperienceSubmit} 
+                />
               </SidebarGroupContent>
             </CollapsibleContent>
           </SidebarGroup>
         </Collapsible>
-
       </SidebarContent>
       <SidebarRail />
     </Sidebar>
