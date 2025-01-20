@@ -28,6 +28,8 @@ export function AppSidebar({
   onEducationSubmit,
   onFirstExperienceSubmit,
   onSecondExperienceSubmit,
+  onThirdExperienceSubmit,
+  onFourthExperienceSubmit
 }) {
 
   return (
@@ -39,7 +41,7 @@ export function AppSidebar({
           <SidebarGroup>
             <SidebarGroupLabel asChild>
               <CollapsibleTrigger>
-                Personal Details{" "}
+              <h4 className="scroll-m-20 text-lg font-semibold tracking-tight text-primary">Personal Details{" "}</h4>
                 <ChevronRight className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-90" />
               </CollapsibleTrigger>
             </SidebarGroupLabel>
@@ -81,7 +83,9 @@ export function AppSidebar({
               <SidebarGroupContent>
                 <ExperienceForm 
                   onSubmitFirstExperience={onFirstExperienceSubmit} 
-                  onSubmitSecondExperience={onSecondExperienceSubmit} 
+                  onSubmitSecondExperience={onSecondExperienceSubmit}
+                  onSubmitThirdExperience={onThirdExperienceSubmit}
+                  onSubmitFourthExperience={onFourthExperienceSubmit}
                 />
               </SidebarGroupContent>
             </CollapsibleContent>

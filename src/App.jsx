@@ -17,6 +17,8 @@ function App() {
   const [educationData, setEducationData] = useState(null);
   const [firstExperienceData, setFirstExperienceData] = useState(null);
   const [secondExperienceData, setSecondExperienceData] = useState(null);
+  const [thirdExperienceData, setThirdExperienceData] = useState(null);
+  const [fourthExperienceData, setFourthExperienceData] = useState(null);
 
   const handlePersonalDetailsSubmit = (data) => {
     setPersonalDetailsFormData(data);
@@ -34,6 +36,14 @@ function App() {
     setSecondExperienceData(data);
   };
 
+  const handleThirdExperienceSubmit = (data) => {
+    setThirdExperienceData(data);
+  }
+
+  const handleFourthExperienceSubmit = (data) => {
+    setFourthExperienceData(data);
+  }
+
   return (
     <SidebarProvider>
       <AppSidebar
@@ -41,6 +51,8 @@ function App() {
         onEducationSubmit={handleEducationSubmit}
         onFirstExperienceSubmit={handleFirstExperienceSubmit}
         onSecondExperienceSubmit={handleSecondExperienceSubmit}
+        onThirdExperienceSubmit={handleThirdExperienceSubmit}
+        onFourthExperienceSubmit={handleFourthExperienceSubmit}
       />
       <SidebarInset>
         <header className="flex sticky top-0 bg-background h-16 shrink-0 items-center gap-2 border-b px-4">
@@ -78,6 +90,20 @@ function App() {
             <ExperienceSubmission data={secondExperienceData} />
           ) : (
             <p>Please complete the second experience form.</p>
+          )}
+        </div>
+        <div className="p-4">
+            {thirdExperienceData ? (
+                <ExperienceSubmission data={thirdExperienceData} />
+            ) : (
+             <p>Please complete the third experience form.</p>
+            )}
+        </div>
+        <div className="p-4">
+          {fourthExperienceData ? (
+            <ExperienceSubmission data={fourthExperienceData} />
+          ) : (
+            <p>Please complete the fourth experience form.</p>
           )}
         </div>
       </SidebarInset>
