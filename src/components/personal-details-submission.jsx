@@ -1,5 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import { Button } from "./ui/button";
 
 export default function PersonalDetailsForm({ onSubmit }) {
   const { register, handleSubmit } = useForm();
@@ -58,33 +59,22 @@ export default function PersonalDetailsForm({ onSubmit }) {
         />
       </div>
       <div>
-        <button type="submit" className="w-full py-2 bg-blue-600 text-white rounded-md">
+        <Button type="submit" className="w-full">
           Submit
-        </button>
+        </Button>
       </div>
     </form>
   );
 }
 
-
 export function PersonalDetailsSubmission({ data }) {
-    return (
-      <div className="p-4 border rounded-md bg-white">
-        <h2 className="text-xl font-semibold">Personal Details</h2>
-        <p>
-          <strong>First Name:</strong> {data.firstName}
-        </p>
-        <p>
-          <strong>Last Name:</strong> {data.lastName}
-        </p>
-        <p>
-          <strong>Address:</strong> {data.address}
-        </p>
-        <p>
-          <strong>Email:</strong> {data.email}
-        </p>
-      </div>
-    );
-  }
-  
-
+  return (
+    <div className="bg-white text-center">
+      <h1 className="text-2xl font-semibold">
+        {data.firstName} {data.lastName}
+      </h1>
+      <p>{data.address}</p>
+      <p>{data.email}</p>
+    </div>
+  );
+}

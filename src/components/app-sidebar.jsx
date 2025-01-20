@@ -34,18 +34,21 @@ export function AppSidebar({
 
   return (
     <Sidebar>
-      <SidebarHeader>{/* Sidebar header content */}</SidebarHeader>
+      <SidebarHeader>
+        {/* Sidebar header content */}
+        <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-2xl ml-2 mt-2">CV App{" "}</h1>
+      </SidebarHeader>
       <SidebarContent className="gap-0">
         {/* Personal Details */}
         <Collapsible title="Personal Details" className="group/collapsible">
           <SidebarGroup>
             <SidebarGroupLabel asChild>
               <CollapsibleTrigger>
-              <h4 className="scroll-m-20 text-lg font-semibold tracking-tight text-primary">Personal Details{" "}</h4>
+              <h5 className="scroll-m-20 text-base font-semibold tracking-tight">Personal Details{" "}</h5>
                 <ChevronRight className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-90" />
               </CollapsibleTrigger>
             </SidebarGroupLabel>
-            <CollapsibleContent>
+            <CollapsibleContent className="px-2 my-4">
               <SidebarGroupContent>
                 <PersonalDetailsForm onSubmit={onPersonalDetailsSubmit} />
               </SidebarGroupContent>
@@ -58,11 +61,11 @@ export function AppSidebar({
           <SidebarGroup>
             <SidebarGroupLabel asChild>
               <CollapsibleTrigger>
-                Education{" "}
+              <h5 className="scroll-m-20 text-base font-semibold tracking-tight">Education{" "}</h5>
                 <ChevronRight className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-90" />
               </CollapsibleTrigger>
             </SidebarGroupLabel>
-            <CollapsibleContent>
+            <CollapsibleContent className="px-2 my-4">
               <SidebarGroupContent>
                 <EducationForm onSubmit={onEducationSubmit} />
               </SidebarGroupContent>
@@ -75,11 +78,11 @@ export function AppSidebar({
           <SidebarGroup>
             <SidebarGroupLabel asChild>
               <CollapsibleTrigger>
-                Experience{" "}
+              <h5 className="scroll-m-20 text-base font-semibold tracking-tight">Experience{" "}</h5>
                 <ChevronRight className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-90" />
               </CollapsibleTrigger>
             </SidebarGroupLabel>
-            <CollapsibleContent>
+            <CollapsibleContent className="px-2 my-4">
               <SidebarGroupContent>
                 <ExperienceForm 
                   onSubmitFirstExperience={onFirstExperienceSubmit} 

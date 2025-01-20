@@ -12,33 +12,51 @@ import {
 } from "@radix-ui/react-collapsible";
 import { ChevronRight } from "lucide-react";
 import { Button } from "./ui/button";
+import { Textarea } from "@/components/ui/textarea";
 
-
-export default function ExperienceForm({ onSubmitFirstExperience, onSubmitSecondExperience, onSubmitThirdExperience, onSubmitFourthExperience }) {
-  const { register: registerFirst, handleSubmit: handleSubmitFirst } = useForm();
-  const { register: registerSecond, handleSubmit: handleSubmitSecond } = useForm();
-  const { register: registerThird, handleSubmit: handleSubmitThird } = useForm();
-    const { register: registerFourth, handleSubmit: handleSubmitFourth } = useForm();
+export default function ExperienceForm({
+  onSubmitFirstExperience,
+  onSubmitSecondExperience,
+  onSubmitThirdExperience,
+  onSubmitFourthExperience,
+}) {
+  const { register: registerFirst, handleSubmit: handleSubmitFirst } =
+    useForm();
+  const { register: registerSecond, handleSubmit: handleSubmitSecond } =
+    useForm();
+  const { register: registerThird, handleSubmit: handleSubmitThird } =
+    useForm();
+  const { register: registerFourth, handleSubmit: handleSubmitFourth } =
+    useForm();
 
   return (
     <>
       {/* First Experience Form */}
-      <Collapsible title="firstExperience" className="group/collapsible" defaultOpen>
+      <Collapsible
+        title="firstExperience"
+        className="group/collapsible"
+        defaultOpen
+      >
         <SidebarGroup>
           <SidebarGroupLabel asChild>
             <CollapsibleTrigger>
-            1st Experience{" "}
+              <h4 className="scroll-m-20 text-sm font-semibold tracking-tight">
+                1st Experience{" "}
+              </h4>
               <ChevronRight className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-90" />
             </CollapsibleTrigger>
           </SidebarGroupLabel>
-          <CollapsibleContent>
+          <CollapsibleContent className="mt-2">
             <SidebarGroupContent>
               <form
                 onSubmit={handleSubmitFirst(onSubmitFirstExperience)}
                 className="p-4 space-y-4 bg-gray-50 border rounded-md"
               >
                 <div>
-                  <label htmlFor="companyNameOne" className="block text-sm font-medium">
+                  <label
+                    htmlFor="companyNameOne"
+                    className="block text-sm font-medium"
+                  >
                     Company Name
                   </label>
                   <input
@@ -51,7 +69,10 @@ export default function ExperienceForm({ onSubmitFirstExperience, onSubmitSecond
                 </div>
 
                 <div>
-                  <label htmlFor="jobTitleOne" className="block text-sm font-medium">
+                  <label
+                    htmlFor="jobTitleOne"
+                    className="block text-sm font-medium"
+                  >
                     Job Title
                   </label>
                   <input
@@ -64,7 +85,10 @@ export default function ExperienceForm({ onSubmitFirstExperience, onSubmitSecond
                 </div>
 
                 <div>
-                  <label htmlFor="startDateOne" className="block text-sm font-medium">
+                  <label
+                    htmlFor="startDateOne"
+                    className="block text-sm font-medium"
+                  >
                     Start Date
                   </label>
                   <input
@@ -77,7 +101,10 @@ export default function ExperienceForm({ onSubmitFirstExperience, onSubmitSecond
                 </div>
 
                 <div>
-                  <label htmlFor="endDateOne" className="block text-sm font-medium">
+                  <label
+                    htmlFor="endDateOne"
+                    className="block text-sm font-medium"
+                  >
                     End Date
                   </label>
                   <input
@@ -90,23 +117,26 @@ export default function ExperienceForm({ onSubmitFirstExperience, onSubmitSecond
                 </div>
 
                 <div>
-                  <label htmlFor="descriptionOne" className="block text-sm font-medium">
+                  <label
+                    htmlFor="descriptionOne"
+                    className="block text-sm font-medium"
+                  >
                     Description
                   </label>
-                  <input
+                  <Textarea
+                    cols="35"
+                    wrap="soft"
+                    rows="4"
                     id="descriptionOne"
                     {...registerFirst("descriptionOne")}
                     type="text"
-                    placeholder="Description"
+                    placeholder="Enter your description here"
                     className="mt-1 block w-full p-2 border rounded-md"
                   />
                 </div>
-
+                <div className="grid w-full gap-1.5"></div>
                 <div>
-                <Button
-                    type="submit"
-                    className="w-full"
-                  >
+                  <Button type="submit" className="w-full">
                     Submit
                   </Button>
                 </div>
@@ -121,18 +151,23 @@ export default function ExperienceForm({ onSubmitFirstExperience, onSubmitSecond
         <SidebarGroup>
           <SidebarGroupLabel asChild>
             <CollapsibleTrigger>
-              2nd Experience{" "}
+              <h4 className="scroll-m-20 text-sm font-semibold tracking-tight">
+                2nd Experience{" "}
+              </h4>
               <ChevronRight className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-90" />
             </CollapsibleTrigger>
           </SidebarGroupLabel>
-          <CollapsibleContent>
+          <CollapsibleContent className="mt-2">
             <SidebarGroupContent>
               <form
                 onSubmit={handleSubmitSecond(onSubmitSecondExperience)}
                 className="p-4 space-y-4 bg-gray-50 border rounded-md"
               >
                 <div>
-                  <label htmlFor="companyNameTwo" className="block text-sm font-medium">
+                  <label
+                    htmlFor="companyNameTwo"
+                    className="block text-sm font-medium"
+                  >
                     Company Name
                   </label>
                   <input
@@ -145,7 +180,10 @@ export default function ExperienceForm({ onSubmitFirstExperience, onSubmitSecond
                 </div>
 
                 <div>
-                  <label htmlFor="jobTitleTwo" className="block text-sm font-medium">
+                  <label
+                    htmlFor="jobTitleTwo"
+                    className="block text-sm font-medium"
+                  >
                     Job Title
                   </label>
                   <input
@@ -158,7 +196,10 @@ export default function ExperienceForm({ onSubmitFirstExperience, onSubmitSecond
                 </div>
 
                 <div>
-                  <label htmlFor="startDateTwo" className="block text-sm font-medium">
+                  <label
+                    htmlFor="startDateTwo"
+                    className="block text-sm font-medium"
+                  >
                     Start Date
                   </label>
                   <input
@@ -171,7 +212,10 @@ export default function ExperienceForm({ onSubmitFirstExperience, onSubmitSecond
                 </div>
 
                 <div>
-                  <label htmlFor="endDateTwo" className="block text-sm font-medium">
+                  <label
+                    htmlFor="endDateTwo"
+                    className="block text-sm font-medium"
+                  >
                     End Date
                   </label>
                   <input
@@ -184,23 +228,26 @@ export default function ExperienceForm({ onSubmitFirstExperience, onSubmitSecond
                 </div>
 
                 <div>
-                  <label htmlFor="descriptionTwo" className="block text-sm font-medium">
+                  <label
+                    htmlFor="descriptionTwo"
+                    className="block text-sm font-medium"
+                  >
                     Description
                   </label>
-                  <input
+                  <Textarea
+                    cols="35"
+                    wrap="soft"
+                    rows="4"
                     id="descriptionTwo"
                     {...registerSecond("descriptionTwo")}
                     type="text"
-                    placeholder="Description"
+                    placeholder="Enter your description here"
                     className="mt-1 block w-full p-2 border rounded-md"
                   />
                 </div>
 
                 <div>
-                  <Button
-                    type="submit"
-                    className="w-full"
-                  >
+                  <Button type="submit" className="w-full">
                     Submit
                   </Button>
                 </div>
@@ -210,23 +257,28 @@ export default function ExperienceForm({ onSubmitFirstExperience, onSubmitSecond
         </SidebarGroup>
       </Collapsible>
 
-       {/* Third Experience Form */}
-       <Collapsible title="thirdExperience" className="group/collapsible">
+      {/* Third Experience Form */}
+      <Collapsible title="thirdExperience" className="group/collapsible">
         <SidebarGroup>
           <SidebarGroupLabel asChild>
             <CollapsibleTrigger>
-              3rd Experience{" "}
+              <h4 className="scroll-m-20 text-sm font-semibold tracking-tight">
+                3rd Experience{" "}
+              </h4>
               <ChevronRight className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-90" />
             </CollapsibleTrigger>
           </SidebarGroupLabel>
-          <CollapsibleContent>
+          <CollapsibleContent className="mt-2">
             <SidebarGroupContent>
               <form
                 onSubmit={handleSubmitThird(onSubmitThirdExperience)}
                 className="p-4 space-y-4 bg-gray-50 border rounded-md"
               >
                 <div>
-                  <label htmlFor="companyNameThree" className="block text-sm font-medium">
+                  <label
+                    htmlFor="companyNameThree"
+                    className="block text-sm font-medium"
+                  >
                     Company Name
                   </label>
                   <input
@@ -239,7 +291,10 @@ export default function ExperienceForm({ onSubmitFirstExperience, onSubmitSecond
                 </div>
 
                 <div>
-                  <label htmlFor="jobTitleThree" className="block text-sm font-medium">
+                  <label
+                    htmlFor="jobTitleThree"
+                    className="block text-sm font-medium"
+                  >
                     Job Title
                   </label>
                   <input
@@ -252,7 +307,10 @@ export default function ExperienceForm({ onSubmitFirstExperience, onSubmitSecond
                 </div>
 
                 <div>
-                  <label htmlFor="startDateThree" className="block text-sm font-medium">
+                  <label
+                    htmlFor="startDateThree"
+                    className="block text-sm font-medium"
+                  >
                     Start Date
                   </label>
                   <input
@@ -265,7 +323,10 @@ export default function ExperienceForm({ onSubmitFirstExperience, onSubmitSecond
                 </div>
 
                 <div>
-                  <label htmlFor="endDateThree" className="block text-sm font-medium">
+                  <label
+                    htmlFor="endDateThree"
+                    className="block text-sm font-medium"
+                  >
                     End Date
                   </label>
                   <input
@@ -278,23 +339,26 @@ export default function ExperienceForm({ onSubmitFirstExperience, onSubmitSecond
                 </div>
 
                 <div>
-                  <label htmlFor="descriptionThree" className="block text-sm font-medium">
+                  <label
+                    htmlFor="descriptionThree"
+                    className="block text-sm font-medium"
+                  >
                     Description
                   </label>
-                  <input
+                  <Textarea
+                    cols="35"
+                    wrap="soft"
+                    rows="4"
                     id="descriptionThree"
                     {...registerThird("descriptionThree")}
                     type="text"
-                    placeholder="Description"
+                    placeholder="Enter your description here"
                     className="mt-1 block w-full p-2 border rounded-md"
                   />
                 </div>
 
                 <div>
-                <Button
-                    type="submit"
-                    className="w-full"
-                  >
+                  <Button type="submit" className="w-full">
                     Submit
                   </Button>
                 </div>
@@ -309,18 +373,23 @@ export default function ExperienceForm({ onSubmitFirstExperience, onSubmitSecond
         <SidebarGroup>
           <SidebarGroupLabel asChild>
             <CollapsibleTrigger>
-              4th Experience{" "}
+              <h4 className="scroll-m-20 text-sm font-semibold tracking-tight">
+                4th Experience{" "}
+              </h4>
               <ChevronRight className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-90" />
             </CollapsibleTrigger>
           </SidebarGroupLabel>
-          <CollapsibleContent>
+          <CollapsibleContent className="mt-2">
             <SidebarGroupContent>
               <form
                 onSubmit={handleSubmitFourth(onSubmitFourthExperience)}
                 className="p-4 space-y-4 bg-gray-50 border rounded-md"
               >
                 <div>
-                  <label htmlFor="companyNameFour" className="block text-sm font-medium">
+                  <label
+                    htmlFor="companyNameFour"
+                    className="block text-sm font-medium"
+                  >
                     Company Name
                   </label>
                   <input
@@ -333,7 +402,10 @@ export default function ExperienceForm({ onSubmitFirstExperience, onSubmitSecond
                 </div>
 
                 <div>
-                  <label htmlFor="jobTitleFour" className="block text-sm font-medium">
+                  <label
+                    htmlFor="jobTitleFour"
+                    className="block text-sm font-medium"
+                  >
                     Job Title
                   </label>
                   <input
@@ -346,7 +418,10 @@ export default function ExperienceForm({ onSubmitFirstExperience, onSubmitSecond
                 </div>
 
                 <div>
-                  <label htmlFor="startDateFour" className="block text-sm font-medium">
+                  <label
+                    htmlFor="startDateFour"
+                    className="block text-sm font-medium"
+                  >
                     Start Date
                   </label>
                   <input
@@ -359,7 +434,10 @@ export default function ExperienceForm({ onSubmitFirstExperience, onSubmitSecond
                 </div>
 
                 <div>
-                  <label htmlFor="endDateFour" className="block text-sm font-medium">
+                  <label
+                    htmlFor="endDateFour"
+                    className="block text-sm font-medium"
+                  >
                     End Date
                   </label>
                   <input
@@ -372,23 +450,26 @@ export default function ExperienceForm({ onSubmitFirstExperience, onSubmitSecond
                 </div>
 
                 <div>
-                  <label htmlFor="descriptionFour" className="block text-sm font-medium">
+                  <label
+                    htmlFor="descriptionFour"
+                    className="block text-sm font-medium"
+                  >
                     Description
                   </label>
-                  <input
+                  <Textarea
+                    cols="35"
+                    wrap="soft"
+                    rows="4"
                     id="descriptionFour"
                     {...registerFourth("descriptionFour")}
                     type="text"
-                    placeholder="Description"
+                    placeholder="Enter your description here"
                     className="mt-1 block w-full p-2 border rounded-md"
                   />
                 </div>
 
                 <div>
-                <Button
-                    type="submit"
-                    className="w-full"
-                  >
+                  <Button type="submit" className="w-full">
                     Submit
                   </Button>
                 </div>
@@ -402,14 +483,54 @@ export default function ExperienceForm({ onSubmitFirstExperience, onSubmitSecond
 }
 
 export function ExperienceSubmission({ data }) {
-    return (
-    <div className="p-4 border rounded-md bg-white">
-      <h2 className="text-xl font-semibold">Experience</h2>
-      <p><strong>Company Name:</strong> {data.companyNameOne || data.companyNameTwo || data.companyNameThree || data.companyNameFour}</p>
-      <p><strong>Job Title:</strong> {data.jobTitleOne || data.jobTitleTwo || data.jobTitleThree || data.jobTitleFour}</p>
-      <p><strong>Start Date:</strong> {data.startDateOne || data.startDateTwo || data.startDateThree || data.startDateFour}</p>
-      <p><strong>End Date:</strong> {data.endDateOne || data.endDateTwo || data.endDateThree || data.endDateFour}</p>
-      <p><strong>Description:</strong> {data.descriptionOne || data.descriptionTwo || data.descriptionThree || data.descriptionFour}</p>
+  // Helper function to format text with line breaks
+  const formatWithLineBreaks = (text) => {
+    return text
+      ? text.split("\n").map((line, index) => (
+          <React.Fragment key={index}>
+            {line}
+            <br />
+          </React.Fragment>
+        ))
+      : null;
+  };
+
+  return (
+    <div>
+      <p>
+        <strong>
+          {data.companyNameOne ||
+            data.companyNameTwo ||
+            data.companyNameThree ||
+            data.companyNameFour}
+        </strong>
+      </p>
+      <p className="float-right">
+        {data.startDateOne ||
+          data.startDateTwo ||
+          data.startDateThree ||
+          data.startDateFour}{" "}
+        -{" "}
+        {data.endDateOne ||
+          data.endDateTwo ||
+          data.endDateThree ||
+          data.endDateFour}
+      </p>
+      <p>
+        {data.jobTitleOne ||
+          data.jobTitleTwo ||
+          data.jobTitleThree ||
+          data.jobTitleFour}
+      </p>
+
+      <p className="mt-2">
+        {formatWithLineBreaks(
+          data.descriptionOne ||
+            data.descriptionTwo ||
+            data.descriptionThree ||
+            data.descriptionFour
+        )}
+      </p>
     </div>
   );
 }

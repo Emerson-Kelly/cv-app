@@ -1,5 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import { Button } from "./ui/button";
 
 export default function EducationForm({ onSubmit }) {
   const { register, handleSubmit } = useForm();
@@ -29,7 +30,7 @@ export default function EducationForm({ onSubmit }) {
           id="location"
           {...register("location")}
           type="text"
-          placeholder="location"
+          placeholder="Location"
           className="mt-1 block w-full p-2 border rounded-md"
         />
       </div>
@@ -46,20 +47,8 @@ export default function EducationForm({ onSubmit }) {
         />
       </div>
       <div>
-        <label htmlFor="startDate" className="block text-sm font-medium">
-        Start Date
-        </label>
-        <input
-          id="educationStartDate"
-          {...register("startDate")}
-          type="text"
-          placeholder="Start Date"
-          className="mt-1 block w-full p-2 border rounded-md"
-        />
-      </div>
-      <div>
         <label htmlFor="endDate" className="bock text-sm font-medium">
-            End Date
+            Graduation Date
         </label>
         <input
         id="educationEndDate"
@@ -70,9 +59,9 @@ export default function EducationForm({ onSubmit }) {
         />
       </div>
       <div>
-        <button type="submit" className="w-full py-2 bg-blue-600 text-white rounded-md">
+      <Button type="submit" className="w-full">
           Submit
-        </button>
+        </Button>
       </div>
     </form>
   );
@@ -81,22 +70,17 @@ export default function EducationForm({ onSubmit }) {
 
 export function EducationSubmission({ data }) {
     return (
-      <div className="p-4 border rounded-md bg-white">
-        <h2 className="text-xl font-semibold">Education</h2>
-        <p>
-          <strong>School:</strong> {data.school}
+      <div>
+        <h2 className="text-xl font-semibold mb-2">Education</h2>
+        <hr className="mb-2" />
+        <p className="float-right">
+          Graduated {data.endDate}
         </p>
         <p>
-          <strong>Location:</strong> {data.location}
+          {data.school}, {data.location}
         </p>
         <p>
-          <strong>Degree:</strong> {data.degree}
-        </p>
-        <p>
-          <strong>Start Date:</strong> {data.startDate}
-        </p>
-        <p>
-          <strong>End Date:</strong> {data.endDate}
+          {data.degree}
         </p>
       </div>
     );
