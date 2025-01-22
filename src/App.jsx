@@ -163,7 +163,7 @@ function App() {
           onClear={handleClearData}
         />
         </header>
-        <div className="max-w-[816px] m-auto w-full bg-white">
+        <div className="max-w-[816px] m-auto w-full bg-white h-screen">
           <div className="p-4" id="personal-details-container">
             {personalDetailsData ? (
               <PersonalDetailsSubmission data={personalDetailsData} onClear={handleClearData} />
