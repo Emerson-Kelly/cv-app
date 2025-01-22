@@ -48,18 +48,18 @@ export default function EducationForm({ onSubmit }) {
       </div>
       <div>
         <label htmlFor="endDate" className="bock text-sm font-medium">
-            Graduation Date
+          Graduation Date
         </label>
         <input
-        id="educationEndDate"
-        {...register("endDate")}
-        type="text"
-        placeholder="End Date"
-        className="mt-1 block w-full p-2 border rounded-md"
+          id="educationEndDate"
+          {...register("endDate")}
+          type="text"
+          placeholder="End Date"
+          className="mt-1 block w-full p-2 border rounded-md"
         />
       </div>
       <div>
-      <Button type="submit" className="w-full">
+        <Button type="submit" className="w-full">
           Submit
         </Button>
       </div>
@@ -67,23 +67,19 @@ export default function EducationForm({ onSubmit }) {
   );
 }
 
-
 export function EducationSubmission({ data }) {
-    return (
-      <div>
-        <h2 className="text-xl font-semibold mb-2">Education</h2>
-        <hr className="mb-2" />
-        <p className="float-right">
-          Graduated {data.endDate}
-        </p>
-        <p>
-          {data.school}, {data.location}
-        </p>
-        <p>
-          {data.degree}
-        </p>
-      </div>
-    );
-  }
-  
+  const educationContainer = document.getElementById("education-container");
+  educationContainer.style.display = "block";
 
+  return (
+    <div>
+      <h2 className="text-xl font-semibold mb-2">Education</h2>
+      <hr className="mb-2" />
+      <p className="float-right">Graduated {data.endDate}</p>
+      <p>
+        {data.school}, {data.location}
+      </p>
+      <p>{data.degree}</p>
+    </div>
+  );
+}

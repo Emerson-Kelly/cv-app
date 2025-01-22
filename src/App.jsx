@@ -11,6 +11,7 @@ import { PersonalDetailsSubmission } from "./components/personal-details-submiss
 import { EducationSubmission } from "./components/education";
 import { ExperienceSubmission } from "./components/experience";
 import { v4 as uuidv4 } from "uuid";
+import DeleteButton from "@/components/deleteData";
 
 function App() {
   const [personalDetailsData, setPersonalDetailsFormData] = useState(null);
@@ -44,6 +45,15 @@ function App() {
     setFourthExperienceData(data);
   };
 
+  const handleClearData = () => {
+    setPersonalDetailsFormData(null);
+    setEducationData(null);
+    setFirstExperienceData(null);
+    setSecondExperienceData(null);
+    setThirdExperienceData(null);
+    setFourthExperienceData(null);
+  };
+
   return (
     <SidebarProvider>
       <AppSidebar
@@ -60,26 +70,34 @@ function App() {
           <Separator orientation="vertical" className="mr-2 h-4" />
           <Button variant="link">Download</Button>
           <Separator orientation="vertical" className="mr-2 h-4" />
-          <Button className="text-red-500" variant="link">
-            Clear
-          </Button>
+          <DeleteButton
+          data={{
+            personalDetailsData,
+            educationData,
+            firstExperienceData,
+            secondExperienceData,
+            thirdExperienceData,
+            fourthExperienceData,
+          }}
+          onClear={handleClearData}
+        />
         </header>
         <div className="max-w-[816px] m-auto w-full bg-white">
-          <div className="p-4">
+          <div className="p-4" id="personal-details-container">
             {personalDetailsData ? (
-              <PersonalDetailsSubmission data={personalDetailsData} />
+              <PersonalDetailsSubmission data={personalDetailsData} onClear={handleClearData} />
             ) : (
-              <p>Please complete the Personal Details form.</p>
+              <p></p>
             )}
           </div>
-          <div className="p-4">
+          <div className="p-4" id="education-container">
             {educationData ? (
               <EducationSubmission data={educationData} />
             ) : (
-              <p>Please complete the Education form.</p>
+              <p></p>
             )}
           </div>
-          <div className="p-4">
+          <div className="p-4" id="first-experience-container">
             {firstExperienceData ? (
               <>
                 <h3 className="mb-2 text-xl font-semibold">
@@ -90,24 +108,24 @@ function App() {
                 <ExperienceSubmission data={firstExperienceData} />
               </>
             ) : (
-              <p>Please complete the first experience form.</p>
+              <p></p>
             )}
           </div>
-          <div className="p-4">
+          <div className="p-4" id="second-experience-container">
             {secondExperienceData ? (
               <ExperienceSubmission data={secondExperienceData} />
             ) : (
               <p></p>
             )}
           </div>
-          <div className="p-4">
+          <div className="p-4" id="third-experience-container">
             {thirdExperienceData ? (
               <ExperienceSubmission data={thirdExperienceData} />
             ) : (
               <p></p>
             )}
           </div>
-          <div className="p-4">
+          <div className="p-4" id="fourth-experience-container">
             {fourthExperienceData ? (
               <ExperienceSubmission data={fourthExperienceData} />
             ) : (

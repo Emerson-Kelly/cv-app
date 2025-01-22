@@ -68,6 +68,9 @@ export default function PersonalDetailsForm({ onSubmit }) {
 }
 
 export function PersonalDetailsSubmission({ data }) {
+  const personalDetailsContainer = document.getElementById("personal-details-container");
+  personalDetailsContainer.style.display = "block";
+
   return (
     <div className="bg-white text-center">
       <h1 className="text-2xl font-semibold">

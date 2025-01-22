@@ -483,6 +483,24 @@ export default function ExperienceForm({
 }
 
 export function ExperienceSubmission({ data }) {
+  const firstExperienceContainer = document.getElementById(
+    "first-experience-container"
+  );
+  const secondExperienceContainer = document.getElementById(
+    "second-experience-container"
+  );
+  const thirdExperienceContainer = document.getElementById(
+    "third-experience-container"
+  );
+  const fourthExperienceContainer = document.getElementById(
+    "fourth-experience-container"
+  );
+
+  firstExperienceContainer.style.display = "block";
+  secondExperienceContainer.style.display = "block";
+  thirdExperienceContainer.style.display = "block";
+  fourthExperienceContainer.style.display = "block";
+
   // Helper function to format text with line breaks
   const formatWithLineBreaks = (text) => {
     return text
